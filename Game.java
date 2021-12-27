@@ -313,7 +313,7 @@ public class Game extends Canvas implements Runnable {
         }
 
         Graphics2D g = (Graphics2D) bs.getDrawGraphics();
-        // Graphics setting to enable image and text interpolation
+        // Graphics setting to enable antialiasing and  image and text interpolation
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         g.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
         g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
