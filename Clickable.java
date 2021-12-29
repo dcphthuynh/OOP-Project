@@ -35,6 +35,6 @@ public abstract class Clickable extends GameObject {
         for (Action action : actions) {
             action.perform();
         }
-    }2312312312321312312312321
+    }
 }
-12312321321312312312313123123123123131231231
+
