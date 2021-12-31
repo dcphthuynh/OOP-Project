@@ -3,6 +3,12 @@ package candycrush;
 import java.awt.*;
 
 public class Background extends SimpleObject {
+    /**
+	 * 
+	 */
+	/**
+	 * 
+	 */
     private static final int WIDTH = Game.WIDTH;
     private static final int HEIGHT = Game.HEIGHT;
     private static final float HUE_MIN = 0;

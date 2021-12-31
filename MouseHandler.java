@@ -49,6 +49,7 @@ public class MouseHandler extends MouseAdapter {
         objectsToRemove.clear();
     }
 
+    //Mouse pressed
     @Override
     public void mousePressed(MouseEvent e) {
         int mouseX = e.getX();
@@ -61,6 +62,7 @@ public class MouseHandler extends MouseAdapter {
         }
     }
 
+    //MouseReleased
     @Override
     public void mouseReleased(MouseEvent e) {
         int mouseX = e.getX();
@@ -77,6 +79,7 @@ public class MouseHandler extends MouseAdapter {
         }
     }
 
+    //MouseMoved
     @Override
     public void mouseMoved(MouseEvent e) {
         int mouseX = e.getX();

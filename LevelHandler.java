@@ -108,6 +108,7 @@ public class LevelHandler {
         return null;
     }
 
+    //Vertical up check
     private ArrayList<Candy> checkVerticalUp(Candy candy) {
         ArrayList<Candy> matches = new ArrayList<>();
         Candy c1 = findCandy(candy.getX(), candy.getY() - 100);
@@ -119,6 +120,7 @@ public class LevelHandler {
         return matches;
     }
 
+    //Vertical down check
     private ArrayList<Candy> checkVerticalDown(Candy candy) {
         ArrayList<Candy> matches = new ArrayList<>();
         Candy c1 = findCandy(candy.getX(), candy.getY() + 100);
@@ -130,6 +132,7 @@ public class LevelHandler {
         return matches;
     }
 
+    //Vertical check
     private ArrayList<Candy> checkVertical(Candy candy) {
         ArrayList<Candy> matches = new ArrayList<>();
         matches.addAll(checkVerticalUp(candy));
@@ -138,6 +141,7 @@ public class LevelHandler {
         return matches;
     }
 
+    //Horizontal right check
     private ArrayList<Candy> checkHorizontalRight(Candy candy) {
         ArrayList<Candy> matches = new ArrayList<>();
         Candy c1 = findCandy(candy.getX() + 100, candy.getY());
@@ -149,6 +153,7 @@ public class LevelHandler {
         return matches;
     }
 
+    //Horizontal left check
     private ArrayList<Candy> checkHorizontalLeft(Candy candy) {
         ArrayList<Candy> matches = new ArrayList<>();
         Candy c1 = findCandy(candy.getX() - 100, candy.getY());
@@ -160,6 +165,7 @@ public class LevelHandler {
         return matches;
     }
 
+    //Horizontal check
     private ArrayList<Candy> checkHorizontal(Candy candy) {
         ArrayList<Candy> matches = new ArrayList<>();
         matches.addAll(checkHorizontalLeft(candy));
@@ -168,6 +174,7 @@ public class LevelHandler {
         return matches;
     }
 
+    //Matches check (candies alligned)
     private Set<Candy> checkMatches(Candy candy) {
         ArrayList<Candy> matches1 = checkHorizontal(candy);
         ArrayList<Candy> matches2 = checkVertical(candy);
