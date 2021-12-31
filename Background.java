@@ -27,15 +27,4 @@ public class Background extends SimpleObject {
         color1 = Color.getHSBColor(hue, 1, 1);
         color2 = Color.getHSBColor(hue + 16 * colorDelta, 1, 1);
     }
-
-    @Override
-    public void render(Graphics2D graphic) {
-        // Draw backdrop gradient
-        float[] dist = {0f, 1f};
-        Color[] colors = {color1, color2};
-        RadialGradientPaint gradient = new RadialGradientPaint((float) WIDTH / 2, (float) HEIGHT / 2, WIDTH, dist, colors);
-
-        graphic.setPaint(gradient);
-        graphic.fill(new Rectangle(WIDTH, HEIGHT));
-    }
 }
