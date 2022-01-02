@@ -75,6 +75,19 @@ public class LevelHandler {
         }
     }
 
+    //Create new candies
+    //Checking the grid to spawn
+    private void spawnCandies() {
+        CandiesID[] candiesID = CandiesID.values();
+        for (int x = 0; x < 9; x++) {
+            if (grid[0][x] == 0) {
+                Candy temp = new Candy(x * 100 + 350, -70, candiesID[random.nextInt(candiesID.length)]);
+                candies.add(temp);
+                grid[0][x] = 1;
+            }
+        }
+    }
+
     private void updateGrid() {
         for (int y = 0; y < 10; y++) {
             for (int x = 0; x < 9; x++) {
