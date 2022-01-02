@@ -16,6 +16,23 @@ public class MouseHandler extends MouseAdapter {
         }
         return handler;
     }
+    
+    //clickable check
+    public void addObject(Clickable object) {
+        objectsToAdd.add(object);
+    }
+
+    public void addObject(ClickableGroup group) {
+        objectsToAdd.addAll(group.getObjects());
+    }
+
+    public void removeObject(Clickable object) {
+        objectsToRemove.add(object);
+    }
+
+    public void removeObject(ClickableGroup group) {
+        objectsToRemove.addAll(group.getObjects());
+    }
 
     private boolean mouseOver(int mouseX, int mouseY, Clickable object) {
         int x = object.getX();
@@ -33,6 +50,7 @@ public class MouseHandler extends MouseAdapter {
         objectsToRemove.clear();
     }
 
+    
     //Mouse pressed
     @Override
     public void mousePressed(MouseEvent e) {
