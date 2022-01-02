@@ -102,6 +102,105 @@ public class LevelHandler {
         }
     }
 
+    //Finding candy in the grid
+    private Candy findCandy(int x, int y) {
+        for (Candy candy : candies) {
+            if (candy.getX() == x && candy.getY() == y)
+                return candy;
+        }
+        
+        return null;
+    }
+
+    //Vertical up check
+    //If matched add 
+    private ArrayList<Candy> checkVerticalUp(Candy candy) {
+        ArrayList<Candy> matches = new ArrayList<>();
+        Candy c1 = findCandy(candy.getX(), candy.getY() - 100);
+        if (c1 != null && c1.getId() == candy.getId()) {
+            matches.addAll(checkVerticalUp(c1));
+            matches.add(c1);
+        }
+
+        return matches;
+    }
+
+    //Vertical down check
+    //If matched add 
+    private ArrayList<Candy> checkVerticalDown(Candy candy) {
+        ArrayList<Candy> matches = new ArrayList<>();
+        Candy c1 = findCandy(candy.getX(), candy.getY() + 100);
+        if (c1 != null && c1.getId() == candy.getId()) {
+            matches.addAll(checkVerticalDown(c1));
+            matches.add(c1);
+        }
+
+        return matches;
+    }
+
+    //Vertical check
+    private ArrayList<Candy> checkVertical(Candy candy) {
+        ArrayList<Candy> matches = new ArrayList<>();
+        matches.addAll(checkVerticalUp(candy));
+        matches.addAll(checkVerticalDown(candy));
+        matches.add(candy);
+
+        return matches;
+    }
+
+    //Horizontal right check
+    //If matched add 
+    private ArrayList<Candy> checkHorizontalRight(Candy candy) {
+        ArrayList<Candy> matches = new ArrayList<>();
+        Candy c1 = findCandy(candy.getX() + 100, candy.getY());
+        if (c1 != null && c1.getId() == candy.getId()) {
+            matches.addAll(checkHorizontalRight(c1));
+            matches.add(c1);
+        }
+
+        return matches;
+    }
+
+    //Horizontal left check
+    //If matched add    
+    private ArrayList<Candy> checkHorizontalLeft(Candy candy) {
+        ArrayList<Candy> matches = new ArrayList<>();
+        Candy c1 = findCandy(candy.getX() - 100, candy.getY());
+        if (c1 != null && c1.getId() == candy.getId()) {
+            matches.addAll(checkHorizontalLeft(c1));
+            matches.add(c1);
+        }
+
+        return matches;
+    }
+
+    //Horizontal check
+    //If matched add
+    private ArrayList<Candy> checkHorizontal(Candy candy) {
+        ArrayList<Candy> matches = new ArrayList<>();
+        matches.addAll(checkHorizontalLeft(candy));
+        matches.addAll(checkHorizontalRight(candy));
+        matches.add(candy);
+
+        return matches;
+    }
+
+    //Matches check (candies alligned)
+    private Set<Candy> checkMatches(Candy candy) {
+        ArrayList<Candy> matches1 = checkHorizontal(candy);
+        ArrayList<Candy> matches2 = checkVertical(candy);
+        Set<Candy> matches = new HashSet<>();
+
+        if (matches1.size() >= 3) {
+            matches.addAll(matches1);
+        }
+        if (matches2.size() >= 3) {
+            matches.addAll(matches2);
+        }
+
+        return matches;
+    }
+
     public boolean isMoving() {
         for (Candy candy : candies) {
             if (candy.isMoving())
