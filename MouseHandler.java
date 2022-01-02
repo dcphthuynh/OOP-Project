@@ -42,58 +42,12 @@ public class MouseHandler extends MouseAdapter {
         return mouseX > x && mouseX < dx && mouseY > y && mouseY < dy;
     }
 
+    //tick
     public void tick() {
         objects.removeAll(objectsToRemove);
         objects.addAll(objectsToAdd);
 
         objectsToAdd.clear();
         objectsToRemove.clear();
-    }
-
-    
-    //Mouse pressed
-    @Override
-    public void mousePressed(MouseEvent e) {
-        int mouseX = e.getX();
-        int mouseY = e.getY();
-
-        for (int i = 0; i < objects.size(); i++) {
-            if (mouseOver(mouseX, mouseY, objects.get(i)) && objects.get(i).isClickable()) {
-                objects.get(i).mousePressed(e);
-            }
-        }
-    }
-
-    //MouseReleased
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        int mouseX = e.getX();
-        int mouseY = e.getY();
-
-        for (int i = 0; i < objects.size(); i++) {
-            if (objects.get(i).isClickable()) {
-                if (mouseOver(mouseX, mouseY, objects.get(i))) {
-                    objects.get(i).mouseReleased(e);
-                    objects.get(i).performAction();
-                } else
-                    objects.get(i).mouseReset();
-            }
-        }
-    }
-
-    //MouseMoved
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        int mouseX = e.getX();
-        int mouseY = e.getY();
-
-        for (int i = 0; i < objects.size(); i++) {
-            if (objects.get(i).isClickable()) {
-                if (mouseOver(mouseX, mouseY, objects.get(i))) {
-                    objects.get(i).mouseHover(e);
-                } else
-                    objects.get(i).mouseReset();
-            }
-        }
     }
 }
