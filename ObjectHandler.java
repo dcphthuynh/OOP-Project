@@ -3,7 +3,6 @@ package candycrush;
 import java.awt.*;
 import java.util.ArrayList;
 
-
 public class ObjectHandler {
     private static ObjectHandler objectHandler = null;
     private final ArrayList<SimpleObject> objects = new ArrayList<>();
