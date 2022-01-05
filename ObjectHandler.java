@@ -15,30 +15,4 @@ public class ObjectHandler {
         }
         return objectHandler;
     }
-
-    public void tick() {
-        for (SimpleObject object : objects) {
-            object.tick();
-        }
-
-        objects.removeAll(objectsToRemove);
-        objects.addAll(objectsToAdd);
-
-        objectsToAdd.clear();
-        objectsToRemove.clear();
-    }
-
-    public void render(Graphics2D graphic) {
-        for (SimpleObject object : objects) {
-            object.render(graphic);
-        }
-    }
-
-    public void addObject(SimpleObject object) {
-        objectsToAdd.add(object);
-    }
-
-    public void removeObject(SimpleObject object) {
-        objectsToRemove.add(object);
-    }
 }
